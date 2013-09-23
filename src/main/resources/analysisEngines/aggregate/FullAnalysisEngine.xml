@@ -10,18 +10,30 @@
     <delegateAnalysisEngine key="TokenAnnotator">
       <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/TokenAnnotator.xml"/>
     </delegateAnalysisEngine>
+  <delegateAnalysisEngine key="NGramAnnotator">
+      <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/NGramAnnotator.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="AnswerScoringAnnotator">
+      <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/AnswerScoringAnnotator.xml"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="EvaluationAnnotator">
+      <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/EvaluationAnnotator.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>FullAnalysisEngine</name>
     <description/>
     <version>1.0</version>
     <vendor/>
-    <configurationParameters/>
+    <configurationParameters searchStrategy="language_fallback"/>
     <configurationParameterSettings/>
     <flowConstraints>
       <fixedFlow>
         <node>TestElementAnnotator</node>
         <node>TokenAnnotator</node>
+      <node>NGramAnnotator</node>
+        <node>AnswerScoringAnnotator</node>
+        <node>EvaluationAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -32,6 +44,9 @@
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
+        <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Evaluation</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
         </outputs>
         <languagesSupported/>
       </capability>
