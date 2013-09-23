@@ -25,7 +25,8 @@ public class EvaluationAnnotator extends JCasAnnotator_ImplBase
     
     int correct = 0;
     int i = 0;
-    FSArray answers = new FSArray(jcas, answerScoreIndex.size());
+    
+    FSArray answerScores = new FSArray(jcas, answerScoreIndex.size());
     
     while(answerScoreIter.hasNext())
     {
@@ -41,7 +42,7 @@ public class EvaluationAnnotator extends JCasAnnotator_ImplBase
         answerEnd = answer.getEnd();
       }
       
-      answers.set(i++, answer);
+      answerScores.set(i++, answerScore);
       if (answer.getIsCorrect())
       {
         correct++;
@@ -55,26 +56,28 @@ public class EvaluationAnnotator extends JCasAnnotator_ImplBase
     annotation.setConfidence(1.0f);
     
     // Sort answers
-    sortAnswers(answerScoreIndex, answers);    
+    FSArray answers = sortAnswers(jcas, answerScoreIndex, answerScores);    
     annotation.setSortedAnswers(answers);
 
     // Compute Precision
-    float precision = ((float)correct)/(answers.size());
+    float precision = ((float)correct)/(answerScores.size());
     annotation.setPrecision(precision);
     
     annotation.addToIndexes();
   }
 
-  private void sortAnswers(FSIndex answerScoreIndex, FSArray answers) 
-  {
-    /*for (int j = 0; j < answerScoreIndex.size() - 1; j++)
+  private FSArray sortAnswers(JCas jcas, FSIndex answerScoreIndex, FSArray answerScores) 
+  {  
+	FSArray answers = new FSArray(jcas, answerScoreIndex.size());
+	  
+    for (int j = 0; j < answerScoreIndex.size(); j++)
     {
-      AnswerScore max = (Answer) answers.get(j);
+      AnswerScore max = (AnswerScore) answerScores.get(j);
       int maxIndex = j;
       
       for (int k = j + 1; k < answerScoreIndex.size() - 1; k++)
       {
-        AnswerScore current = (AnswerScore)answers.get(k);
+        AnswerScore current = (AnswerScore) answerScores.get(k);
         if ((current).getScore() > max.getScore())
         {
           max = current;
@@ -82,9 +85,17 @@ public class EvaluationAnnotator extends JCasAnnotator_ImplBase
         }
       }
 
-      Answer temp = (Answer)answers.get(j);
-      answers.set(j, max);
-      answers.set(maxIndex, temp);
-    }*/
+      AnswerScore temp = (AnswerScore)answerScores.get(j);
+      answerScores.set(j, max);
+      answerScores.set(maxIndex, temp);
+    }
+    
+    for (int j = 0; j < answerScoreIndex.size(); j++)
+    {
+    	AnswerScore score = (AnswerScore)(answerScores.get(j));
+    	answers.set(j, score.getAnswer());
+    }
+    
+    return answers;
   }
 }
