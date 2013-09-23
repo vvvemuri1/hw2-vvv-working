@@ -75,4 +75,9 @@
 			<version>2.4.0</version>
 		</dependency>
 	</dependencies>
+	<scm>
+		<url>scm:git:git://github.com:vvvemuri1/hw2-vvv-working.git</url>
+		<connection>scm:git:git://github.com:vvvemuri1/hw2-vvv-working.git</connection>
+		<developerConnection>scm:git:git://github.com:vvvemuri1/hw2-vvv-working.git</developerConnection>
+	</scm>
 </project>

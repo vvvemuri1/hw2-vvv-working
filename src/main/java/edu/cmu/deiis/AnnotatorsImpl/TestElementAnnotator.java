@@ -14,11 +14,20 @@ import edu.cmu.deiis.types.Answer;
 import edu.cmu.deiis.types.Question;
 import edu.cmu.deiis.types.Token;
 
+/**
+ * The system will read in the input Þle as a UIMA CAS and annotate
+ * the question and answer spans. Each answer annotation will
+ * also record whether or not the answer is correct.
+ * @author Vinay Vyas Vemuri
+ */
 public class TestElementAnnotator extends JCasAnnotator_ImplBase 
 {
   private Pattern questionPattern = Pattern.compile("Q\\s.+\\?");
   private Pattern answerPattern = Pattern.compile("A\\s\\d\\s.+");
   
+  /**
+   * 
+   */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException 
   {    

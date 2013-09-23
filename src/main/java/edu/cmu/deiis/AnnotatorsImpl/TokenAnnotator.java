@@ -11,6 +11,11 @@ import org.apache.uima.jcas.JCas;
 import edu.cmu.deiis.types.Sentence;
 import edu.cmu.deiis.types.Token;
 
+/**
+ * The system will annotate each token span in each question and answer 
+ * (break on whitespace and punctuation).
+ * @author Vinay Vyas Vemuri
+ */
 public class TokenAnnotator extends JCasAnnotator_ImplBase 
 {
   @Override

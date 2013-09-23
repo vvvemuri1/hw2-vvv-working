@@ -10,6 +10,12 @@ import org.apache.uima.jcas.JCas;
 import edu.cmu.deiis.types.Answer;
 import edu.cmu.deiis.types.AnswerScore;
 
+/**
+ * The system will incorporate a component that will assign an answer 
+ * score annotation to each answer. The answer score annotation will
+ * record the score assigned to the answer.
+ * @author Vinay Vyas Vemuri <vvv@andrew.cmu.edu>
+ */
 public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase 
 {
   private static final float GOLD_STANDARD_INCORRECT = 0f;
