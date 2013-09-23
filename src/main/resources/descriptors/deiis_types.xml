@@ -34,11 +34,6 @@
           <rangeTypeName>uima.cas.Integer</rangeTypeName>
         </featureDescription>
         <featureDescription>
-          <name>partOfSpeech</name>
-          <description>Linguistic category of token.</description>
-          <rangeTypeName>uima.cas.String</rangeTypeName>
-        </featureDescription>
-        <featureDescription>
           <name>text</name>
           <description>Text contained in token.</description>
           <rangeTypeName>uima.cas.String</rangeTypeName>

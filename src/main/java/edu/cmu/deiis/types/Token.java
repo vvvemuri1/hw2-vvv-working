@@ -10,7 +10,7 @@ import org.apache.uima.jcas.cas.TOP_Type;
 
 
 /** Token in question/answer (delimited by whitespace and punctuation).
- * Updated by JCasGen Mon Sep 23 10:12:23 EDT 2013
+ * Updated by JCasGen Mon Sep 23 13:50:48 EDT 2013
  * XML source: /Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/descriptors/deiis_types.xml
  * @generated */
 public class Token extends Annotation {
@@ -75,24 +75,6 @@ public class Token extends Annotation {
     if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_sentenceId == null)
       jcasType.jcas.throwFeatMissing("sentenceId", "edu.cmu.deiis.types.Token");
     jcasType.ll_cas.ll_setIntValue(addr, ((Token_Type)jcasType).casFeatCode_sentenceId, v);}    
-   
-    
-  //*--------------*
-  //* Feature: partOfSpeech
-
-  /** getter for partOfSpeech - gets Linguistic category of token.
-   * @generated */
-  public String getPartOfSpeech() {
-    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_partOfSpeech == null)
-      jcasType.jcas.throwFeatMissing("partOfSpeech", "edu.cmu.deiis.types.Token");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((Token_Type)jcasType).casFeatCode_partOfSpeech);}
-    
-  /** setter for partOfSpeech - sets Linguistic category of token. 
-   * @generated */
-  public void setPartOfSpeech(String v) {
-    if (Token_Type.featOkTst && ((Token_Type)jcasType).casFeat_partOfSpeech == null)
-      jcasType.jcas.throwFeatMissing("partOfSpeech", "edu.cmu.deiis.types.Token");
-    jcasType.ll_cas.ll_setStringValue(addr, ((Token_Type)jcasType).casFeatCode_partOfSpeech, v);}    
    
     
   //*--------------*

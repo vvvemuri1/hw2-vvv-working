@@ -14,7 +14,7 @@ import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
 
 /** Token in question/answer (delimited by whitespace and punctuation).
- * Updated by JCasGen Mon Sep 23 10:12:23 EDT 2013
+ * Updated by JCasGen Mon Sep 23 13:50:48 EDT 2013
  * @generated */
 public class Token_Type extends Annotation_Type {
   /** @generated */
@@ -65,24 +65,6 @@ public class Token_Type extends Annotation_Type {
   
  
   /** @generated */
-  final Feature casFeat_partOfSpeech;
-  /** @generated */
-  final int     casFeatCode_partOfSpeech;
-  /** @generated */ 
-  public String getPartOfSpeech(int addr) {
-        if (featOkTst && casFeat_partOfSpeech == null)
-      jcas.throwFeatMissing("partOfSpeech", "edu.cmu.deiis.types.Token");
-    return ll_cas.ll_getStringValue(addr, casFeatCode_partOfSpeech);
-  }
-  /** @generated */    
-  public void setPartOfSpeech(int addr, String v) {
-        if (featOkTst && casFeat_partOfSpeech == null)
-      jcas.throwFeatMissing("partOfSpeech", "edu.cmu.deiis.types.Token");
-    ll_cas.ll_setStringValue(addr, casFeatCode_partOfSpeech, v);}
-    
-  
- 
-  /** @generated */
   final Feature casFeat_text;
   /** @generated */
   final int     casFeatCode_text;
@@ -111,10 +93,6 @@ public class Token_Type extends Annotation_Type {
  
     casFeat_sentenceId = jcas.getRequiredFeatureDE(casType, "sentenceId", "uima.cas.Integer", featOkTst);
     casFeatCode_sentenceId  = (null == casFeat_sentenceId) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_sentenceId).getCode();
-
- 
-    casFeat_partOfSpeech = jcas.getRequiredFeatureDE(casType, "partOfSpeech", "uima.cas.String", featOkTst);
-    casFeatCode_partOfSpeech  = (null == casFeat_partOfSpeech) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_partOfSpeech).getCode();
 
  
     casFeat_text = jcas.getRequiredFeatureDE(casType, "text", "uima.cas.String", featOkTst);
