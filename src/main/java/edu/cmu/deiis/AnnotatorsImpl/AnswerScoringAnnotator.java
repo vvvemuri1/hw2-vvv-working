@@ -21,6 +21,10 @@ public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase
   private static final float GOLD_STANDARD_INCORRECT = 0f;
   private static final float GOLD_STANDARD_CORRECT = 1f;
 
+  /**
+   * Assigns a score to each answer.
+   * @param jcas JCas object that provides access to the CAS.
+   */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException 
   {

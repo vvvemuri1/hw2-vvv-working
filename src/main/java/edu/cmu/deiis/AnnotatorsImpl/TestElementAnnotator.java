@@ -26,7 +26,10 @@ public class TestElementAnnotator extends JCasAnnotator_ImplBase
   private Pattern answerPattern = Pattern.compile("A\\s\\d\\s.+");
   
   /**
-   * 
+   * Reads in an input text file and annotates the question and answer
+   * spans. The answer annotation also records whether the answer is
+   * correct or not.
+   * @param jcas JCas object that provides access to the CAS.
    */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException 

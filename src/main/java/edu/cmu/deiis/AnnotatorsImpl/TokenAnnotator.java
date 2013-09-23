@@ -18,6 +18,10 @@ import edu.cmu.deiis.types.Token;
  */
 public class TokenAnnotator extends JCasAnnotator_ImplBase 
 {
+  /**
+   * Annotates each token span in each question and answer 
+   * @param jcas JCas object that provides access to the CAS.
+   */
   @Override
   public void process(JCas jcas) throws AnalysisEngineProcessException 
   {
