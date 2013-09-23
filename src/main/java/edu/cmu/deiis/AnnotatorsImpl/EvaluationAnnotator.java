@@ -1,5 +1,9 @@
 package edu.cmu.deiis.AnnotatorsImpl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 import org.apache.uima.analysis_component.JCasAnnotator_ImplBase;
@@ -68,34 +72,27 @@ public class EvaluationAnnotator extends JCasAnnotator_ImplBase
 
   private FSArray sortAnswers(JCas jcas, FSIndex answerScoreIndex, FSArray answerScores) 
   {  
-	FSArray answers = new FSArray(jcas, answerScoreIndex.size());
+	  ArrayList<AnswerScore> answerScoreList = new ArrayList(Arrays.asList(answerScores.toArray()));
+	  Collections.sort(answerScoreList, 
+			  new Comparator()
+			  {
+				@Override
+				public int compare(Object o1, Object o2) 
+				{
+					AnswerScore as1 = (AnswerScore) o1;
+					AnswerScore as2 = (AnswerScore) o2;
+					return (int) (as2.getScore() - as1.getScore());
+				}  
+			  }
+	  );
 	  
-    for (int j = 0; j < answerScoreIndex.size(); j++)
-    {
-      AnswerScore max = (AnswerScore) answerScores.get(j);
-      int maxIndex = j;
-      
-      for (int k = j + 1; k < answerScoreIndex.size() - 1; k++)
-      {
-        AnswerScore current = (AnswerScore) answerScores.get(k);
-        if ((current).getScore() > max.getScore())
-        {
-          max = current;
-          maxIndex = k;
-        }
-      }
+	  FSArray answers = new FSArray(jcas, answerScoreIndex.size());
+	  for (int j = 0; j < answerScoreList.size(); j++)
+	  {
+		  AnswerScore score = (AnswerScore)(answerScoreList.get(j));
+		  answers.set(j, score.getAnswer());
+	  }
 
-      AnswerScore temp = (AnswerScore)answerScores.get(j);
-      answerScores.set(j, max);
-      answerScores.set(maxIndex, temp);
-    }
-    
-    for (int j = 0; j < answerScoreIndex.size(); j++)
-    {
-    	AnswerScore score = (AnswerScore)(answerScores.get(j));
-    	answers.set(j, score.getAnswer());
-    }
-    
-    return answers;
+	  return answers;
   }
 }
