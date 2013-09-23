@@ -18,7 +18,10 @@ import edu.cmu.deiis.types.AnswerScore;
  */
 public class AnswerScoringAnnotator extends JCasAnnotator_ImplBase 
 {
+  /** Score assigned to a correct answer under Gold Standard scoring system**/
   private static final float GOLD_STANDARD_INCORRECT = 0f;
+  
+  /** Score assigned to an incorrect answer under Gold Standard scoring system**/
   private static final float GOLD_STANDARD_CORRECT = 1f;
 
   /**

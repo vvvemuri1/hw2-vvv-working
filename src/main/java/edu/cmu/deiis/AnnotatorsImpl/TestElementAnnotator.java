@@ -22,7 +22,10 @@ import edu.cmu.deiis.types.Token;
  */
 public class TestElementAnnotator extends JCasAnnotator_ImplBase 
 {
+  /** Regex used to annotate question spans. **/
   private Pattern questionPattern = Pattern.compile("Q\\s.+\\?");
+  
+  /** Regex used to annotate answer spans. **/
   private Pattern answerPattern = Pattern.compile("A\\s\\d\\s.+");
   
   /**
