@@ -7,6 +7,9 @@
     <delegateAnalysisEngine key="TestElementAnnotator">
       <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/TestElementAnnotator.xml"/>
     </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenAnnotator">
+      <import location="/Users/vvvemuri1/git/hw2-vvv-working/hw2-vvv-ziy-proto/src/main/resources/analysisEngines/primitive/TokenAnnotator.xml"/>
+    </delegateAnalysisEngine>
   </delegateAnalysisEngineSpecifiers>
   <analysisEngineMetaData>
     <name>FullAnalysisEngine</name>
@@ -18,6 +21,7 @@
     <flowConstraints>
       <fixedFlow>
         <node>TestElementAnnotator</node>
+        <node>TokenAnnotator</node>
       </fixedFlow>
     </flowConstraints>
     <fsIndexCollection/>
@@ -27,6 +31,7 @@
         <outputs>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
           <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
         </outputs>
         <languagesSupported/>
       </capability>
